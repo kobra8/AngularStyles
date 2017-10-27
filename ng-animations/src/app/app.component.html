@@ -1,4 +1,7 @@
 <app-goals *ngFor="let goal of courseGoals" [goal]="goal" (click)="goal.isActiveGoal = !goal.isActiveGoal">
   
 </app-goals>
-
+<!-- Tag app-goals to zagnieżdzony w app komponent goals
+Komponent app przekazuje obiekt goal komponentowi goals (w goals-component jest @Input)
+goals-component-html przez interpolację wyświetla obiekt {{goal.title}}
+-->
