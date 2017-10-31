@@ -7,7 +7,7 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   courseGoals = [
-    {title: 'Master Angular Styling', isActiveGoal: true },
+    {title: 'Master Angular Styling', isActiveGoal: false },
     {title: 'Understand Angular Animations', isActiveGoal: false },
     {title: 'Master Angular Animations', isActiveGoal: false },
   ];

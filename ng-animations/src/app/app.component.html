@@ -1,4 +1,6 @@
-<app-goals *ngFor="let goal of courseGoals" [goal]="goal" (click)="goal.isActiveGoal = !goal.isActiveGoal">
+<app-goals *ngFor="let goal of courseGoals" [goal]="goal" 
+[ngClass]="{active: goal.isActiveGoal}"
+(click)="goal.isActiveGoal = !goal.isActiveGoal">
   
 </app-goals>
 <!-- Tag app-goals to zagnieżdzony w app komponent goals
