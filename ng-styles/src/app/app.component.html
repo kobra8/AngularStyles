@@ -4,9 +4,12 @@
       <h1>
         My quote
       </h1>
-      <app-quote></app-quote>
-
+      <div class="interesting">
+        <app-quote (click)="isFavorite = !isFavorite" [ngClass]="{'favorite': isFavorite}"></app-quote>
+      </div>
+      <div class="boring">
+        <app-quote></app-quote>
+      </div>
     </div>
   </div>
-<app-author></app-author>
 </div>

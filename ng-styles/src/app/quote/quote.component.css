@@ -1,3 +1,35 @@
 h1 {
     color: red;
 }
+
+:host {
+    display: block;
+    border: 1px solid black;
+    padding: 20px;
+}
+/* To jest host  z warunkiem, że wystąpi jeżeli w hoście pojawi się klasa .favorite */
+:host(.favorite) {
+    border: 1px solid red;
+}
+/* 
+Mozna także ustawić styl dla selektora komponentu np:
+app-quote{
+    width: 50%;
+}
+ale tylko w pliku css znajdującym się wyżej w hierarchi niż stylowany komponent
+*/
+
+:host-context(.boring) {
+    border: 1px solid #ccc;
+    color: #ccc;
+}
+/* 
+:host-context(klasa) stosuje styl dla dowolnego poziomu zagnieżdżenia bazując na warunku istnienia podanej klasy -> tutaj .boring
+*/
+
+:host-context(.boring) >>> h1{
+    color: #ccc;
+}
+/* 
+/deep/ lub wymiennie >>> stosuje się aby stylować elementy w dzieciach komponentu rodzica -> nadpisywanie domyślnych styli
+*/
