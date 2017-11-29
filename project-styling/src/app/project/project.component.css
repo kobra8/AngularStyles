@@ -1,0 +1,7 @@
+.active {
+    background-color: green;
+}
+
+.critical {
+    background-color: red;
+}

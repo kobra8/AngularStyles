@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Renderer2 } from '@angular/core';
 
 @Component({
   selector: 'app-root',
@@ -6,5 +6,13 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  isfavorite:boolean = false;
+  isfavorite: boolean = false;
+
+constructor(
+  private renderer: Renderer2
+) {}
+
+  onShowBoring(element: HTMLElement) {
+   this.renderer.setStyle(element, 'display', 'block');
+  }
 }

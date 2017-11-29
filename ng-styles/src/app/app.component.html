@@ -5,11 +5,31 @@
         My quote
       </h1>
       <div class="interesting">
-        <app-quote (click)="isFavorite = !isFavorite" [ngClass]="{'favorite': isFavorite}"></app-quote>
+        <app-quote (click)="isFavorite = !isFavorite" [ngClass]="{'favorite': isFavorite}"
+        [ngStyle]="{'width.px': isFavorite ? 600 : 400}"></app-quote> 
+        <!-- Inna składnia  {'width': isFavorite ? '600px' : '400px'}-->
       </div>
-      <div class="boring">
+      <button (click)="onShowBoring(boringBlock)"
+      class="btn btn-primary">Show boring Quotes</button>
+      <div style="display: none"
+      class="boring" #boringBlock>
         <app-quote></app-quote>
       </div>
     </div>
   </div>
 </div>
+
+<!-- 
+  When using ngStyle , you have a choice regarding the style of your CSS property names.
+
+You can use ngStyle  like this: [ngStyle]="{'background-color': 'red'}" 
+
+This works fine and there's nothing wrong with it. You have to make sure to enclose background-color  in single quotation 
+marks since it otherwise would be an invalid JavaScript property name (keep in mind: it's used as a property in the object you pass to ngStyle !).
+
+You may use the JavaScript version of this CSS property as an alternative: [ngStyle]="{backgroundColor: 'red'}" 
+
+This syntax is available for all CSS properties which would be invalid JS properties otherwise.
+
+Feel free to use whichever you prefer!
+ -->
