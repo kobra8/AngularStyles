@@ -5,3 +5,32 @@
 .critical {
     background-color: red;
 }
+
+:host{
+    display: block;
+    border-top: 2px solid #eee;
+    border-left: 1px solid #eee;
+    border-radius: 3px;
+    margin-top: 20px;
+    box-shadow: 3px 3px 2px #ccc;
+    padding: 0 20px 20px 20px; 
+}
+
+.status-label{
+    display: block;
+    width: 100px;
+    height: 30px;
+    margin-top: 25px;
+    font-size: inherit;
+    line-height: 1.75;
+    font-weight: inherit;
+}
+
+:host(.selected) {
+    border: 2px solid orange;
+    padding: 0 18px 18px 19px; 
+}
+
+:host(.inactive) {
+    color: #eee;
+}

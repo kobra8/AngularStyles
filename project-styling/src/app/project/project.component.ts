@@ -24,4 +24,12 @@ export class ProjectComponent implements OnInit {
   onDelete() {
     this.projectDeleted.emit();
   }
+
+  getStatusClass() {
+    return {
+      'active': this.project.status === 'active',
+      'critical': this.project.status === 'critical',
+      'label-default': this.project.status === 'inactive'
+    }
+  }
 }

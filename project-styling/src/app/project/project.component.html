@@ -1,17 +1,17 @@
-<div class="row">
-  <hr>
-  <div class="col-md-8">
-    <h3 class="title">
+<div class="row ">
+  <div class="col-xs-8">
+    <h3 [ngStyle]="{'text-decoration': selected ? 'underline' : 'none'}">
       {{ project.name }}
       <!-- Show different usages of ngClass and ngStyle"-->
     </h3>
   </div>
-  <div class="col-md-4">
-  <span class="label label-default" [ngClass]="{'active':project.status === 'active',
-    'critical':project.status === 'critical'}">{{ project.status }}</span>
+  <div class="col-xs-4">
+  <span class="label status-label" 
+  [ngClass]="getStatusClass()"
+    >{{ project.status }}</span>
+  <!-- [ngClass]="{'active':project.status === 'active','critical':project.status === 'critical'}" -->
   </div>
 </div>
-
 <p>{{ project.description }}</p>
 <select #prjStatus class="form-control status">
   <option value="active" [selected]="project.status === 'active'">Active</option>
