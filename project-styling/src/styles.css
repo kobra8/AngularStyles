@@ -5,3 +5,8 @@
     width: 120px;
     display: inline-block;
 }
+
+/* To jest ciekawostka znaleziona do sprawdzenia*/
+.next:after {
+    content:'▼';
+  }
