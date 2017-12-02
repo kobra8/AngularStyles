@@ -7,3 +7,13 @@
 Komponent app przekazuje obiekt goal komponentowi goals (w goals-component jest @Input)
 goals-component-html przez interpolację wyświetla obiekt {{goal.title}}
 -->
+
+<div id="div1" (click)="divClicked=true"
+[ngClass]="{'wide': divClicked}"
+[ngStyle]="{backgroundColor: divClicked ? 'red' : 'blue'}"
+>
+</div>
+<hr>
+<div id="div2"
+(click)="doAnimate = true"
+[ngClass]="{'animate': doAnimate}"></div>

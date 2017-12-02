@@ -11,5 +11,6 @@ export class AppComponent {
     {title: 'Understand Angular Animations', isActiveGoal: false },
     {title: 'Master Angular Animations', isActiveGoal: false },
   ];
-
+divClicked = false;
+doAnimate = false;
 }
