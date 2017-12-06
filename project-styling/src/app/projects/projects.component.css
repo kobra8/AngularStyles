@@ -1,0 +1,54 @@
+.loading-bar {
+    width: 200px;
+    height: 20px;
+    border: 1px solid black;
+    margin: auto;
+}
+
+.selected {
+    border: 2px solid orange;
+    animation: bounce 0.5s ease-out forwards;
+}
+
+@keyframes bounce {
+    0% {
+        transform: scale(1)
+    }
+    50% {
+        transform: scale(1.05)
+    }
+    100% {
+        transform: scale(1)
+    }
+}
+
+.loading-bar-element {
+    width: 0px;
+    height: 20px;
+    background-color: olivedrab;
+    box-sizing: content-box;
+    animation: load 1s linear infinite;
+}
+
+.loading-bar-element > p {
+    color: white;
+    text-align: center;
+}
+
+@keyframes load {
+    0% {
+        width: 0;
+    }
+    25% {
+        width: 50px;
+    }
+    50% {
+        width: 100px;
+    }
+    75% {
+        width: 150px;
+    }
+    100% {
+        width: 100%;
+    }
+}

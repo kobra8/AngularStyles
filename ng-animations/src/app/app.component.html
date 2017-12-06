@@ -1,3 +1,13 @@
+<div
+(click)="changeState()"
+[@clickedState]="triggerState"></div>
+
+
+
+
+
+<hr>
+<!-- Part from starting with animations-->
 <app-goals *ngFor="let goal of courseGoals" [goal]="goal" 
 [ngClass]="{active: goal.isActiveGoal}"
 (click)="goal.isActiveGoal = !goal.isActiveGoal">
