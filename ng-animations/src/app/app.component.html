@@ -1,6 +1,12 @@
 <div
 (click)="changeState()"
-[@clickedState]="triggerState"></div>
+(mousedown)="infoClick = 'mousedown'"
+[@clickedState]="infoClick"></div>
+
+<p
+(click)="paragraphClick= 'clicked'"
+[@clickedState]="paragraphClick"
+>Some text</p>
 
 
 

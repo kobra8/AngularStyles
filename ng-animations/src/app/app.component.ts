@@ -17,18 +17,28 @@ import { trigger, state, style, transition, animate } from '@angular/animations'
         width: '300px',
         height: '50px'
       })),
+      state('mousedown', style({
+        backgroundColor: 'red',
+        border: '1px solid black',
+        width: '100px',
+        height: '100px'
+      })),
       transition('default => clicked', animate('2s 500ms ease-in')),
-      transition('clicked => default', animate(300))
+      transition('clicked => default', animate(300)),
+      transition('mousedown <=> clicked', animate(600)),
+      transition('default => mousedown', animate(600)),
+    //  transition('clicked => mousedown', animate(300)),
     ])
   ]
 })
 export class AppComponent {
-  private triggerState = 'default';
+  private infoClick = 'default';
+  private paragraphClick = 'default';
 
   changeState() {
-    this.triggerState = 'clicked';
+    this.infoClick = 'clicked';
     setTimeout(() => {
-      this.triggerState = 'default';
+      this.infoClick = 'default';
     }, 3000);
   }
 
