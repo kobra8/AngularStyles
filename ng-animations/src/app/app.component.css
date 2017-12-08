@@ -4,7 +4,9 @@
     background-color: orange;
 }
 
-
+span {
+    display: inline-block;
+}
 
 
 /* Styles Part from starting with animations */
