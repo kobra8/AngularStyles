@@ -5,6 +5,7 @@
     margin: auto;
 }
 
+/* Styl nieaktywny po zastosowaniu animacji Angular
 .selected {
     border: 2px solid orange;
     animation: bounce 0.5s ease-out forwards;
@@ -21,6 +22,8 @@
         transform: scale(1)
     }
 }
+
+*/
 
 .loading-bar-element {
     width: 0px;

@@ -8,13 +8,14 @@
 
 :host{
     display: block;
-    border-top: 2px solid #eee;
-    border-left: 1px solid #eee;
     border-radius: 3px;
     margin-top: 20px;
     box-shadow: 3px 3px 2px #ccc;
+    /* Styl nieaktywny po zastosowaniu animacji Angular 
+    border-top: 2px solid #eee;
+    border-left: 1px solid #eee;
     padding: 0 20px 20px 20px;
-    transition: border-color 0.5s ease-out;
+    transition: border-color 0.5s ease-out; */
 }
 
 .status-label{
@@ -28,10 +29,11 @@
     
 }
 
-:host(.selected) {
-    padding: 0 18px 18px 19px;
-}
-
 :host(.inactive) {
     color: #eee;
 }
+
+/* Styl nieaktywny po zastosowaniu animacji Angular*/
+/* :host(.selected) {
+    padding: 0 18px 18px 19px;
+} */

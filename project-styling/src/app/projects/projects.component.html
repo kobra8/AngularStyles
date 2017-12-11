@@ -34,11 +34,16 @@
     </div>
     <app-project
       *ngFor="let prj of projects; let i = index"
-      [ngClass]="{'selected': markedPrjIndex === i, 'inactive': projects[i].status === 'inactive'}"
       [project]="prj"
+      [@clickedState]="markedPrjIndex === i ? 'selected' : 'default'"
+      [ngClass]="{'inactive': projects[i].status === 'inactive'}"
       (statusUpdated)="onStatusUpdated($event, i)"
       (projectDeleted)="onProjectDeleted(i)"
       (click)="markedPrjIndex = i">
+      <!--  
+        Nieaktywne po zastosowaniu animacji Angular
+        [ngClass]="{ 'selected': markedPrjIndex === i } -->
+
     </app-project>
   </div>
 </div>
