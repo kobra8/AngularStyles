@@ -1,8 +1,10 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, HostBinding } from '@angular/core';
 import { Project } from './project.model';
 import { ProjectsService } from './projects.service';
 import { clickedStateTrigger, slideStateTrigger, itemStateTrigger } from '../animations';
 import { AnimationEvent } from '@angular/animations';
+import { routeFadeStateTrigger } from '../shared/route-animations';
+
 
 @Component({
   selector: 'app-projects',
@@ -11,10 +13,14 @@ import { AnimationEvent } from '@angular/animations';
   animations: [
     clickedStateTrigger,
     slideStateTrigger,
-    itemStateTrigger
+    itemStateTrigger,
+    routeFadeStateTrigger
     ]
 })
 export class ProjectsComponent implements OnInit {
+
+  @HostBinding('@routeFadeState') routeAnimation = true;
+
   projects: Project[];
   displayedProjects: Project[] = [];
   markedPrjIndex = 0;
