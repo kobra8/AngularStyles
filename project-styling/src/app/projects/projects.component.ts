@@ -1,10 +1,9 @@
 import { Component, OnInit, HostBinding } from '@angular/core';
 import { Project } from './project.model';
 import { ProjectsService } from './projects.service';
-import { clickedStateTrigger, slideStateTrigger, itemStateTrigger } from '../animations';
+import { clickedStateTrigger, slideStateTrigger, itemStateTrigger, listStateTrigger } from '../animations';
 import { AnimationEvent } from '@angular/animations';
-import { routeFadeStateTrigger, routeSlideStateTrigger } from '../shared/route-animations';
-
+import { routeFadeStateTrigger, routeSlideStateTrigger  } from '../shared/route-animations';
 
 @Component({
   selector: 'app-projects',
@@ -15,16 +14,17 @@ import { routeFadeStateTrigger, routeSlideStateTrigger } from '../shared/route-a
     slideStateTrigger,
     itemStateTrigger,
     routeFadeStateTrigger,
-    routeSlideStateTrigger
+    routeSlideStateTrigger,
+    listStateTrigger
     ]
 })
 export class ProjectsComponent implements OnInit {
 
-//  @HostBinding('@routeFadeState') routeAnimation = true;
+//  @HostBinding('@routeFadeState') routeAnimation = true; -> zamieniono opacity na slide
   @HostBinding('@routeSlideState') routeAnimation = true;
 
   projects: Project[];
-  displayedProjects: Project[] = [];
+ // displayedProjects: Project[] = [];
   markedPrjIndex = 0;
   progress = 'progressing';
   createNew = false;
@@ -39,9 +39,10 @@ export class ProjectsComponent implements OnInit {
       (prj: Project[]) => {
         this.progress = 'finished';
         this.projects = prj;
-        if(this.projects.length >= 1) {
-          this.displayedProjects.push(this.projects[0])
-        }
+        // Nieaktywna funkcja wyświetlania elementów po kolei -> zastosowano opcję stagger z Angular 4.2 plus
+        // if(this.projects.length >= 1) {
+        //   this.displayedProjects.push(this.projects[0])
+        // }
       }
     );
   }
@@ -61,15 +62,17 @@ export class ProjectsComponent implements OnInit {
     }, 300)
   }
 
-  onItemAnimated(animationEvent: AnimationEvent, lastPrjId: number) {
-    if(animationEvent.fromState != 'void') {
-      return;
-    }
-    if(this.projects.length > lastPrjId + 1) {
-      this.displayedProjects.push(this.projects[lastPrjId + 1])
-    }
-    else {
-      this.projects = this.displayedProjects;
-    }
-  }
+  //  Nieaktywna funkcja wyświetlania elementów po kolei -> zastosowano opcję stagger z Angular 4.2 plus
+
+  // onItemAnimated(animationEvent: AnimationEvent, lastPrjId: number) {
+  //   if(animationEvent.fromState != 'void') {
+  //     return;
+  //   }
+  //   if(this.projects.length > lastPrjId + 1) {
+  //     this.displayedProjects.push(this.projects[lastPrjId + 1])
+  //   }
+  //   else {
+  //     this.projects = this.displayedProjects;
+  //   }
+  // }
 }

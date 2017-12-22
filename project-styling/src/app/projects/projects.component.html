@@ -5,11 +5,8 @@
 </div>
 <div class="row">
   <div class="col-xs-12">
-      <hr>
-    <button
-      class="btn btn-default"
-      *ngIf="!createNew"
-      (click)="createNew = true">Create new Project</button>
+    <hr>
+    <button class="btn btn-default" *ngIf="!createNew" (click)="createNew = true">Create new Project</button>
     <!-- <button
       class="btn btn-danger"
       *ngIf="createNew"
@@ -18,38 +15,37 @@
 </div>
 <div class="row">
   <div class="col-xs-12" style="overflow: hidden">
-    <app-new-project
-      *ngIf="createNew"
-      (projectCreated)="onProjectCreated($event)"
-      @slideState
-      (creationCancelled)="createNew = false">
+    <app-new-project *ngIf="createNew" (projectCreated)="onProjectCreated($event)" @slideState (creationCancelled)="createNew = false">
     </app-new-project>
     <hr>
   </div>
 </div>
 <div class="row">
   <div class="col-xs-12">
-    <div
-      class="loading-bar"
-      *ngIf="!projects">
-      <div
-        class="loading-bar-element"
-        *ngIf="progress != 'finished'"><p> > > > </p></div>
+    <div class="loading-bar" *ngIf="!projects">
+      <div class="loading-bar-element" *ngIf="progress != 'finished'">
+        <p> > > > </p>
+      </div>
     </div>
-    <app-project
-      *ngFor="let prj of displayedProjects; let i = index"
-      [project]="prj"
-      [@clickedState]="markedPrjIndex === i ? 'selected' : 'default'"
-      [@itemState]="createNew ? 'slidDown': 'slidUp'"
-      (@itemState.done)="onItemAnimated($event, i)"
-      [ngClass]="{'inactive': projects[i].status === 'inactive'}"
-      (statusUpdated)="onStatusUpdated($event, i)"
-      (projectDeleted)="onProjectDeleted(i)"
-      (click)="markedPrjIndex = i">
-      <!--  
+    <div [@listState]="projects?.length">
+      <app-project 
+        *ngFor="let prj of projects; let i = index" 
+        [project]="prj" 
+        [@clickedState]="markedPrjIndex === i ? 'selected' : 'default'"
+        [@itemState]="createNew ? 'slidDown': 'slidUp'" 
+        [ngClass]="{'inactive': projects[i].status === 'inactive'}" 
+        (statusUpdated)="onStatusUpdated($event, i)"
+        (projectDeleted)="onProjectDeleted(i)" (click)="markedPrjIndex = i">
+        <!--  
         Nieaktywne po zastosowaniu animacji Angular
-        [ngClass]="{ 'selected': markedPrjIndex === i } -->
+        [ngClass]="{ 'selected': markedPrjIndex === i } 
 
-    </app-project>
+        Nieaktywna funkcja wyświetlania elementów po kolei -> zastosowano opcję stagger z Angular 4.2 plus
+
+        *ngFor="let prj of displayedProjects; let i = index"
+        (@itemState.done)="onItemAnimated($event, i)" -->
+
+      </app-project>
+    </div>
   </div>
 </div>
