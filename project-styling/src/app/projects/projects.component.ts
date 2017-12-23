@@ -13,15 +13,15 @@ import { routeFadeStateTrigger, routeSlideStateTrigger  } from '../shared/route-
     clickedStateTrigger,
     slideStateTrigger,
     itemStateTrigger,
-    routeFadeStateTrigger,
+    routeFadeStateTrigger({startOpacity: 0, duration: '500ms'}), //Reużywalna animacja -> pzrzekzanie argumentów do funkcji
     routeSlideStateTrigger,
     listStateTrigger
     ]
 })
 export class ProjectsComponent implements OnInit {
 
-//  @HostBinding('@routeFadeState') routeAnimation = true; -> zamieniono opacity na slide
-  @HostBinding('@routeSlideState') routeAnimation = true;
+ @HostBinding('@routeFadeState') routeAnimation = true; 
+ // @HostBinding('@routeSlideState') routeAnimation = true;
 
   projects: Project[];
  // displayedProjects: Project[] = [];

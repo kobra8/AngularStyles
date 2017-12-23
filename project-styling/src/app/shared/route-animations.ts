@@ -1,12 +1,17 @@
-import { trigger, state, style, transition, animate } from "@angular/animations";
+import { trigger, state, style, transition, animate, animation, useAnimation } from "@angular/animations";
 
+//Definicja reużywalnej animacji
+const fadeAnimation = animation([
+    style({
+        opacity: '{{ startOpacity }}'
+    }),
+    animate('{{ duration }}')
+], {params: {startOpacity: 0, duration: '100ms'}})
 
-export const routeFadeStateTrigger = trigger('routeFadeState', [
+export const routeFadeStateTrigger = (params) => trigger('routeFadeState', [
     transition(':enter', [
-        style({
-            opacity: 0
-        }),
-        animate(400)
+        //Definicja stylu reużywalnej animacji
+        useAnimation(fadeAnimation, {params: params})
     ]),
     transition(':leave', [
         animate(400), style({

@@ -6,14 +6,14 @@ import { routeFadeStateTrigger, routeSlideStateTrigger } from '../shared/route-a
   templateUrl: './users.component.html',
   styleUrls: ['./users.component.css'],
   animations: [
-    routeFadeStateTrigger,
+    routeFadeStateTrigger({startOpacity: 0, duration: '1000ms'}),
     routeSlideStateTrigger
   ]
 })
 export class UsersComponent implements OnInit {
 
-//@HostBinding('@routeFadeState') routeAnimation = true;
-@HostBinding('@routeSlideState') routeAnimation = true;
+@HostBinding('@routeFadeState') routeAnimation = true;
+//@HostBinding('@routeSlideState') routeAnimation = true;
 
 
   constructor() { }
