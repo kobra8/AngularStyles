@@ -7,9 +7,13 @@ import { animate, AnimationBuilder, style } from '@angular/animations';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  constructor(private builder: AnimationBuilder) {}
+  constructor(
+    private builder: AnimationBuilder
+  ) {}
 
+  //Tworzenie animacji bez triggerów -> AnimationBuilder
   animate(element: any) {
+    //Definicja funkcji animation
     const animation = this.builder.build([
       style({
         backgroundColor: 'red',
@@ -20,8 +24,8 @@ export class AppComponent {
       })),
       animate(200)
     ]);
-
     const player = animation.create(element);
     player.play();
+    //Element jest przekazywany w pliku HTML jako argument funkcji animate()
   }
 }
