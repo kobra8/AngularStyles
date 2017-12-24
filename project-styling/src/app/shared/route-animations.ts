@@ -8,6 +8,9 @@ const fadeAnimation = animation([
     animate('{{ duration }}')
 ], {params: {startOpacity: 0, duration: '100ms'}})
 
+// Poniższe animacje to animacje komponentu children w stosunku do routerOutlet
+// wykonują się tylko, jeżeli w rodzicu wpisano funkcję animateChild(), lub jeżeli w rodzicu nie ma
+// żadnych animacji
 export const routeFadeStateTrigger = (params) => trigger('routeFadeState', [
     transition(':enter', [
         //Definicja stylu reużywalnej animacji

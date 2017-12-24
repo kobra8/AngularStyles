@@ -9,6 +9,8 @@
   </div>
   <div class="row" style="overflow: hidden">
     <div class="col-xs-12" [@routerState]="getAnimationData(rOutlet)">
+      <!-- Tutaj definiujemy state w obiekcie który jest wyżej niż router-outlet
+      Wywołujemy funkcję przekazując identyfiaktor kontenera określony poniżej -->
       <router-outlet #rOutlet="outlet"></router-outlet>
     </div>
   </div>

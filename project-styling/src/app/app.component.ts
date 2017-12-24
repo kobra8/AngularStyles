@@ -34,6 +34,7 @@ import { query, trigger, style, transition, animate, group } from '@angular/anim
 })
 export class AppComponent {
 
+  // Ta funkcja odwołuje się do obiektu data w routach aby określić który route został wywołany
   getAnimationData(outlet: RouterOutlet) {
     const routeData = outlet.activatedRouteData['animation'];
     if(!routeData) {

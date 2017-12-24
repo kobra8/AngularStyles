@@ -5,6 +5,8 @@ import { ProjectsComponent } from './projects/projects.component';
 import { UsersComponent } from './users/users.component';
 
 const appRoutes: Routes = [
+  // Tutuaj dodatkowo przekazywany jest do komponentu obiekt data:, w którym umieszczono nazwy stron
+  // do użycia w animacji
   { path: '', component: ProjectsComponent, data: {animation: {page: 'rootPage'}} },
   { path: 'users', component: UsersComponent, data: {animation: {page: 'usersPage'}} }
 ];
